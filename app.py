@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, render_template, request
 from flask_cors import CORS
 from werkzeug import exceptions
 from flask_sqlalchemy import SQLAlchemy
@@ -18,26 +18,21 @@ db.init_app(app)
 with app.app_context():
     db.create_all()
 
-
 @app.route('/')
 def home():
     return jsonify({'message': 'Hello from Flask!'}), 200
-
 
 @app.errorhandler(exceptions.NotFound)
 def handle_404(err):
     return {'message': f'Oops! {err}'}, 404
 
-
 @app.errorhandler(exceptions.BadRequest)
 def handle_400(err):
     return {'message': f'Oops! {err}'}, 400
 
-
 @app.errorhandler(exceptions.InternalServerError)
 def handle_500(err):
     return {'message': f"It's not you, it's us"}, 500
-
 
 if __name__ == "__main__":
     app.run(debug=True)
