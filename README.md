@@ -13,7 +13,10 @@ We have been tasked with creating a URL shortener, like this: [Free URL Shortene
 
 ## Installation & Usage
 
-Clone this repo and then `cd` into the project folder
+Clone this repo and then `cd` into the project folder. Then run `pipenv install` and then `pipenv shell`. You can then run the following commands:
+
+- `pipenv run dev` - Runs development server, on `http://localhost:5000/`
+- `pipenv run start` - Runs Gunicorn server, on `...`
 
 ## Bugs
 
