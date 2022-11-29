@@ -13,10 +13,19 @@ We have been tasked with creating a URL shortener, like this: [Free URL Shortene
 
 ## Installation & Usage
 
-Clone this repo and then `cd` into the project folder. Then run `pipenv install` and then `pipenv shell`. You can then run the following commands:
+Clone this repo and then `cd` into the front end `client` project folder or the back end `server` project folder. 
+
+### Server - Python
+Run `pipenv install` and then `pipenv shell`. You can then run the following commands:
 
 - `pipenv run dev` - Runs development server, on `http://localhost:5000/`
 - `pipenv run start` - Runs Gunicorn server, on `...`
+
+### Client - React
+Run `npm install` and then `npm run ...` with the following arguments:
+
+- `start` - Runs the server on `http://localhost:3001/`
+- `ping` - Delete me
 
 ## Bugs
 
