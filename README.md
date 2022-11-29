@@ -5,7 +5,7 @@ We have been tasked with creating a URL shortener, like this: [Free URL Shortene
 ## Requirements
 - Our users should be able to enter a url into an input box on your website's front page
 - Our backend will then generate a shortened path at which a User can access their url
-- We must implement Python in some capacity in this application
+- We must implement Python in the BackEnd, and React in the FrontEnd.
 - Store this shortened path and it's longer counterpart in a database
 - No login should be required to create a shortened URL
 - If User tries to access our website with a path we have stored in our database, they should get rerouted to the URL it relates to 
