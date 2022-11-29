@@ -49,6 +49,28 @@ def urls_handler():
         return jsonify(uData), 201
 
 
+@app.route('/urls/<int:url_id>', methods=['GET', 'DELETE'])
+def specific_urls_handler(url_id):
+    if request.method == 'GET':
+        try:
+            foundUrl = Url.query.filter_by(id=url_id).first()
+            output = {"id": foundUrl.id, "long_path": foundUrl.long_path,
+                      "short_path": foundUrl.short_path}
+            return output
+        except:
+            raise exceptions.BadRequest(
+                f"We do not have a url with that id: {url_id}")
+    elif request.method == 'DELETE':
+        try:
+            foundUrl = Url.query.filter_by(id=url_id).first()
+            db.session.delete(foundUrl)
+            db.session.commit()
+            return "deleted", 204
+        except:
+            raise exceptions.BadRequest(
+                f"failed to delete a url with that id: {url_id}")
+
+
 @app.errorhandler(exceptions.NotFound)
 def handle_404(err):
     return {'message': f'Oops! {err}'}, 404
