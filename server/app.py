@@ -40,9 +40,10 @@ def urls_handler():
         usableOutputs = list(outputs)
         return jsonify(usableOutputs), 200
     elif request.method == 'POST':
+        count = Url.query.count()
         uData = request.json
         new_url = Url(
-            id=uData["id"], long_path=uData["long_path"], short_path=uData["short_path"])
+            id=count+1, long_path=uData["long_path"], short_path=uData["short_path"])
         db.session.add(new_url)
         db.session.commit()
         return jsonify(uData), 201
