@@ -4,7 +4,7 @@ export default function Home() {
 
   const handleSubmit = event => {
     event.preventDefault();
-    alert('You have submitted the form.')
+    alert('URL SHRTND!')
   }
 
   return (
