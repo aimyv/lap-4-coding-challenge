@@ -40,7 +40,7 @@ export default function Home() {
 
   return (
     <div class='center'>
-      <h1>SH✂️RT✂️NR</h1>
+      <h1>SHRTNR</h1>
       <hr />
       <div>
         <form onSubmit={handleSubmit} id="urlInput">
