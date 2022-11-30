@@ -8,14 +8,20 @@ export default function Home() {
 
   const handleSubmit = event => {
     event.preventDefault();
-    alert('URL SHRTND!')
-    axios.post('http://localhost:5000/urls', {
-      'long_path': longUrl
-    }).then(function (response) {
-      setShortUrl(response.data['short_path'])
-    }).catch(function (error) {
-      console.log(error);
-    });
+    let protocol_ok = longUrl.startsWith('http://') || longUrl.startsWith('https://') || longUrl.startsWith('ftp://')
+    if (protocol_ok) {
+      alert('URL SHRTND 😎')
+      axios.post('http://localhost:5000/urls', {
+        'long_path': longUrl
+      }).then(function (response) {
+        setShortUrl(response.data['short_path'])
+      }).catch(function (error) {
+        console.log(error);
+      });
+    } else {
+      alert('😳 Oops! That wasn\'t a valid url. Please enter a valid url.')
+    }
+    
   }
 
   const handleText = e => {
