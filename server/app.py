@@ -4,6 +4,9 @@ from werkzeug import exceptions
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 
+import math
+import random
+
 
 app = Flask(__name__)
 CORS(app)
@@ -40,13 +43,28 @@ def urls_handler():
         usableOutputs = list(outputs)
         return jsonify(usableOutputs), 200
     elif request.method == 'POST':
-        count = Url.query.count()
         uData = request.json
-        new_url = Url(
-            id=count+1, long_path=uData["long_path"], short_path=uData["short_path"])
-        db.session.add(new_url)
-        db.session.commit()
-        return jsonify(uData), 201
+        foundUrl = Url.query.filter_by(long_path=uData["long_path"]).first()
+        if foundUrl:
+            output = {"id": foundUrl.id, "long_path": foundUrl.long_path,
+                      "short_path": foundUrl.short_path}
+            return output, 200
+        else:
+            count = Url.query.count()
+            code = 'https://ap/' + getrandom()
+            new_url = Url(
+                id=count+1, long_path=uData["long_path"], short_path=code)
+            db.session.add(new_url)
+            db.session.commit()
+            return jsonify(uData), 201
+
+
+def getrandom():
+    text = ''
+    possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+    for i in range(5):
+        text += possible[random.randint(0, len(possible)-1)]
+    return text
 
 
 @app.route('/urls/<int:url_id>', methods=['GET', 'DELETE'])
