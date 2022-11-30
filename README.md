@@ -1,4 +1,4 @@
-# LAP 4 Debugging Assignment - Aimy Varghese && Peter Edwards
+# LAP 4 URL Shortener Pair Project - Aimy Varghese && Peter Edwards
 
 We have been tasked with creating a URL shortener, like this: [Free URL Shortener](https://free-url-shortener.rb.gy/).
 
