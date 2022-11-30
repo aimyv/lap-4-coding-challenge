@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, redirect
 from flask_cors import CORS
 from werkzeug import exceptions
 from flask_sqlalchemy import SQLAlchemy
@@ -51,7 +51,7 @@ def urls_handler():
             return output, 200
         else:
             count = Url.query.count()
-            code = 'https://ap/' + getrandom()
+            code = getrandom()
             new_url = Url(
                 id=count+1, long_path=uData["long_path"], short_path=code)
             db.session.add(new_url)
@@ -89,6 +89,16 @@ def specific_urls_handler(url_id):
         except:
             raise exceptions.BadRequest(
                 f"failed to delete a url with that id: {url_id}")
+
+
+@app.route('/<short_url>')
+def redirection(short_url):
+    try:
+        foundUrl = Url.query.filter_by(short_path=short_url).first()
+        return redirect(foundUrl.long_path)
+    except:
+        raise exceptions.BadRequest(
+            f"We do not have that url in the database.")
 
 
 @app.errorhandler(exceptions.NotFound)
