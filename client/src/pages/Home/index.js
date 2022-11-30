@@ -11,7 +11,7 @@ export default function Home() {
     <div>
       <h1>SH&#9988;RT&#9988;N&#9988;R</h1>
       <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} id="urlInput">
           <label>
             <input type="text" longurl="longurl" />
             </label>
