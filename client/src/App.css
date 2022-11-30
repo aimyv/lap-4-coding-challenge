@@ -50,6 +50,14 @@ body {
   width: 100%;
 }
 
+#footer > a {
+  color: black;
+}
+
+#footer > a:hover {
+  color: rgb(88, 88, 88);
+}
+
 .center {
   border: solid 2px black;
   border-radius: 20px;
