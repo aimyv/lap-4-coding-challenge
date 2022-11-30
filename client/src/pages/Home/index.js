@@ -31,6 +31,7 @@ export default function Home() {
   const seeLink = url => {
     if (url !== '') {
       return (<>
+      <hr />
       SHRTND 🔗: <a href={`http://localhost:5000/${shortUrl}`} target='_blank'>{`http://localhost:5000/${shortUrl}`}</a>
       </>
       )
@@ -49,7 +50,6 @@ export default function Home() {
             <button type="submit">SHRTN!</button>
         </form>
       </div>
-      <br />
       {seeLink(shortUrl)}
     </div>
   )
