@@ -9,11 +9,9 @@ export default function Home() {
   const handleSubmit = event => {
     event.preventDefault();
     alert('URL SHRTND!')
-    // console.log(longUrl);
     axios.post('http://localhost:5000/urls', {
       'long_path': longUrl
     }).then(function (response) {
-      console.log(response.data['short_path']);
       setShortUrl(response.data['short_path'])
     }).catch(function (error) {
       console.log(error);
@@ -26,7 +24,7 @@ export default function Home() {
 
   const seeLink = url => {
     if (url !== '') {
-      return <a href={`http://localhost:5000/${shortUrl}`}>{`http://localhost:5000/${shortUrl}`}</a>
+      return <a href={`http://localhost:5000/${shortUrl}`} target='_blank'>{`http://localhost:5000/${shortUrl}`}</a>
     }
   }
 
