@@ -2,21 +2,20 @@ import React, { useContext, useState } from 'react'
 
 export default function Home() {
 
-  const [longUrl, setLongUrl] = useState('')
-
-  function handleSubmit(e) {
-    e.preventDefault()
+  const handleSubmit = event => {
+    event.preventDefault();
+    alert('You have submitted the form.')
   }
 
   return (
     <div>
       <h1>SH&#9988;RT&#9988;N&#9988;R</h1>
       <div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>
             <input type="text" longurl="longurl" />
             </label>
-            <input type="submit" value="SHRTN!" />
+            <button type="submit">SHRTN!</button>
         </form>
       </div>
     </div>
