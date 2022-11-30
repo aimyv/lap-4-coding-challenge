@@ -32,7 +32,7 @@ export default function Home() {
     if (url !== '') {
       return (<>
       <hr />
-      SHRTND 🔗: <a href={`http://localhost:5000/${shortUrl}`} target='_blank'>{`http://localhost:5000/${shortUrl}`}</a>
+      <a href={`http://localhost:5000/${shortUrl}`} target='_blank'>{`http://localhost:5000/${shortUrl}`}</a>
       </>
       )
     }
@@ -44,10 +44,9 @@ export default function Home() {
       <hr />
       <div>
         <form onSubmit={handleSubmit} id="urlInput">
-            <label>Enter URL to SHRTN: <br />
-              <input type="text" longurl={longUrl} onChange={handleText} placeholder='Enter URL' />
-            </label>
-            <button type="submit">SHRTN!</button>
+            <input type="text" longurl={longUrl} onChange={handleText} placeholder='Enter URL' />
+            <br />
+            <button type="submit">SHRTN</button>
         </form>
       </div>
       {seeLink(shortUrl)}
