@@ -30,17 +30,21 @@ export default function Home() {
 
   const seeLink = url => {
     if (url !== '') {
-      return <a href={`http://localhost:5000/${shortUrl}`} target='_blank'>{`http://localhost:5000/${shortUrl}`}</a>
+      return (<>
+      SHRTND 🔗: <a href={`http://localhost:5000/${shortUrl}`} target='_blank'>{`http://localhost:5000/${shortUrl}`}</a>
+      </>
+      )
     }
   }
 
   return (
-    <div>
-      <h1>SH&#9988;RT&#9988;N&#9988;R</h1>
+    <div class='center'>
+      <h1>SH✂️RT✂️NR</h1>
+      <hr />
       <div>
         <form onSubmit={handleSubmit} id="urlInput">
-          <label>
-            <input type="text" longurl={longUrl} onChange={handleText} />
+            <label>Enter URL to SHRTN: <br />
+              <input type="text" longurl={longUrl} onChange={handleText} placeholder='Enter URL' />
             </label>
             <button type="submit">SHRTN!</button>
         </form>
