@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <h2>Footer</h2>
+    <div>
+      <p> <a href="https://github.com/aimyv/lap-4-coding-challenge">Project Repo</a></p>
+    </div>
   )
 }
