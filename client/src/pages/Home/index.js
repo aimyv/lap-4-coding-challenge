@@ -24,6 +24,12 @@ export default function Home() {
     setLongUrl(e.target.value)
   }
 
+  const seeLink = url => {
+    if (url !== '') {
+      return <a href={`http://localhost:5000/${shortUrl}`}>{`http://localhost:5000/${shortUrl}`}</a>
+    }
+  }
+
   return (
     <div>
       <h1>SH&#9988;RT&#9988;N&#9988;R</h1>
@@ -35,6 +41,8 @@ export default function Home() {
             <button type="submit">SHRTN!</button>
         </form>
       </div>
+      <br />
+      {seeLink(shortUrl)}
     </div>
   )
 }
