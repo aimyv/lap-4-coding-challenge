@@ -56,7 +56,9 @@ def urls_handler():
                 id=count+1, long_path=uData["long_path"], short_path=code)
             db.session.add(new_url)
             db.session.commit()
-            return jsonify(list(new_url)), 201
+            output = {"id": new_url.id, "long_path": new_url.long_path,
+                      "short_path": new_url.short_path}
+            return jsonify(output), 201
 
 
 def getrandom():
